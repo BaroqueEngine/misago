@@ -8,7 +8,7 @@ export default function Meta() {
         name="description"
         content={`グラフィックスプログラミング関連技術についての覚え書き`}
       />
-      <script type="text/javascript" src="/static/mathjax.js"></script>
+      <script type="text/javascript" src="./static/mathjax.js"></script>
       <script
         id="MathJax-script"
         async
