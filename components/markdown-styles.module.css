@@ -13,11 +13,13 @@
 }
 
 .markdown ul {
+  margin-top: 1rem;
   margin-bottom: 1rem;
   list-style-type: none;
 }
 
 .markdown ol {
+  margin-top: 1rem;
   margin-bottom: 1rem;
   padding-left: 1rem;
   list-style-type: decimal;
@@ -57,4 +59,22 @@
   font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ,
     Meiryo, sans-serif;
   background-color: #333 !important;
+}
+
+.markdown table {
+  margin-top: 1em;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+
+.markdown table,
+.markdown th,
+.markdown td {
+  border: 1px solid #5c5c5c;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.markdown th {
+  font-weight: normal;
 }
