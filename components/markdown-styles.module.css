@@ -8,6 +8,15 @@
   border-bottom: 1px solid #555;
 }
 
+.markdown ul li:before {
+  content: "\30FB";
+}
+
+.markdown ul {
+  margin-bottom: 1rem;
+  list-style-type: none;
+}
+
 .markdown ol {
   margin-bottom: 1rem;
   padding-left: 1rem;
