@@ -7,11 +7,12 @@ export default function Meta() {
         name="description"
         content={`グラフィックスプログラミング関連技術についての覚え書き`}
       />
-      <script type="text/javascript" src="./static/js/mathjax.js"></script>
-      <script
-        async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
-      ></script>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.13.3/dist/katex.min.css"
+        integrity="sha384-ThssJ7YtjywV52Gj4JE/1SQEDoMEckXyhkFVwaf4nDSm5OBlXeedVYjuuUd0Yua+"
+        crossOrigin="anonymous"
+      ></link>
     </Head>
   );
 }
