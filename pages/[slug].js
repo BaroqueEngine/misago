@@ -27,7 +27,7 @@ export default function Post({ post, preview }) {
               <Head>
                 <title>{post.title} | みさご解体新書</title>
               </Head>
-              <PostHeader title={post.title} date={post.date} />
+              <PostHeader title={post.title} />
               <PostBody content={post.content} />
             </article>
           </>
@@ -38,15 +38,7 @@ export default function Post({ post, preview }) {
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, [
-    "title",
-    "date",
-    "slug",
-    "author",
-    "content",
-    "ogImage",
-    "coverImage",
-  ]);
+  const post = getPostBySlug(params.slug, ["title", "slug", "content"]);
   const content = await markdownToHtml(post.content || "");
 
   return {

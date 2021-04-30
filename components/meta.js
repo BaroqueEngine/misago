@@ -9,7 +9,6 @@ export default function Meta() {
       />
       <script type="text/javascript" src="./static/js/mathjax.js"></script>
       <script
-        id="MathJax-script"
         async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
       ></script>

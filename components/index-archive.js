@@ -12,7 +12,7 @@ export default function c({ posts }) {
         記事一覧
       </h2>
       {tags.map((tag) => (
-        <div className="mb-16">
+        <div key={tag} className="mb-16">
           <h3 className="font-index mb-3 border-b border-main-border text-lg text-main-green">
             {names[tag]}
           </h3>
