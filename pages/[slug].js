@@ -23,7 +23,7 @@ export default function Post({ post, preview }) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="py-20">
+            <article className="px-8 py-20">
               <Head>
                 <title>{post.title} | みさご解体新書</title>
               </Head>
