@@ -155,6 +155,10 @@ pre.language-typescript:before {
   content: "TypeScript";
 }
 
+pre.language-cpp:before {
+  content: "C++";
+}
+
 pre.language-aa:before {
   content: "AA";
 }
