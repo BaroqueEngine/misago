@@ -3,21 +3,18 @@ import * as p5 from "p5";
 type Point = { x: number; y: number };
 
 const Cell = {
-  floor: "floor",
-  wall: "wall",
+  Floor: "floor",
+  Wall: "wall",
 } as const;
 type Cell = typeof Cell[keyof typeof Cell];
 
 new p5((p: p5) => {
-  const tileWidth = 55;
-  const tileHeight = 18;
+  const INF = 1000000000;
+  const W = 55;
+  const H = 18;
+  const dx = [-1, 1, 0, 0];
+  const dy = [0, 0, -1, 1];
   const tileSize = 10;
-  const directions: Point[] = [
-    { x: 0, y: -1 },
-    { x: 1, y: 0 },
-    { x: 0, y: 1 },
-    { x: -1, y: 0 },
-  ];
   const colors = {
     visited: "#1c8b94",
     routes: "#de980f",
@@ -32,7 +29,7 @@ new p5((p: p5) => {
   #_________________________#___________________________#
   #_________________________#___________________________#
   #_________________________#___________________________#
-  #_________________________#______________E____________#
+  #_________________________#______________G____________#
   #___________S_____________#___________________________#
   #_________________________#___________________________#
   #_________________________#___________________________#
@@ -46,11 +43,12 @@ new p5((p: p5) => {
   `;
 
   let map: Cell[];
-  let start: Point;
-  let goal: Point;
+  let sx: number, sy: number;
+  let gx: number, gy: number;
   let nexts: Point[];
-  let visited: Point[];
+  let dist: number[][];
   let prevs: Point[];
+  let visited: Point[];
   let routes: Point[];
   let isPlaying: boolean;
 
@@ -59,47 +57,55 @@ new p5((p: p5) => {
 
     parseStringMap();
 
-    visited = [];
-    nexts = [{ x: start.x, y: start.y }];
+    nexts = [{ x: sx, y: sy }];
     prevs = [];
+    visited = [];
+    dist = [];
+    for (let y = 0; y < H; y++) {
+      dist[y] = new Array(W).fill(INF);
+    }
+    dist[sy][sx] = 0;
 
     while (0 < nexts.length) {
-      const cur = nexts.shift();
-      visited.push({ x: cur.x, y: cur.y });
+      const next = nexts.shift();
+      visited.push(next);
+      const [cx, cy] = [next.x, next.y];
 
-      if (isGoal(cur.x, cur.y)) {
-        break;
-      }
+      if (cx == gx && cy == gy) break;
 
-      const dirs = directions.slice();
-      for (const dir of dirs) {
-        const tx = cur.x + dir.x;
-        const ty = cur.y + dir.y;
+      for (let i = 0; i < 4; i++) {
+        const tx = cx + dx[i];
+        const ty = cy + dy[i];
 
-        if (isFloor(tx, ty) && !checkVisited(tx, ty) && !checkNexts(tx, ty)) {
-          prevs[ty * tileWidth + tx] = { x: cur.x, y: cur.y };
-          nexts.push({ x: tx, y: ty });
-        }
+        if (!(0 <= tx && tx < W && 0 <= ty && ty < H)) continue;
+        if (getTile(tx, ty) != Cell.Floor) continue;
+        if (dist[ty][tx] != INF) continue;
+
+        dist[ty][tx] = dist[cy][cx] + 1;
+        nexts.push({ x: tx, y: ty });
+        prevs[ty * W + tx] = { x: cx, y: cy };
       }
     }
 
     routes = [];
-    const cur: Point = { x: goal.x, y: goal.y };
+    let cx = gx;
+    let cy = gy;
+
     while (true) {
-      routes.unshift({ x: cur.x, y: cur.y });
-      if (cur.x === start.x && cur.y === start.y) {
+      routes.unshift({ x: cx, y: cy });
+      if (cx === sx && cy === sy) {
         break;
       }
-      const index = cur.y * tileWidth + cur.x;
+      const index = cy * W + cx;
       const prev = prevs[index];
-      cur.x = prev.x;
-      cur.y = prev.y;
+      cx = prev.x;
+      cy = prev.y;
     }
 
     initFill();
     const color = colors.startGoal;
-    fill(start.x, start.y, color);
-    fill(goal.x, goal.y, color);
+    fill(sx, sy, color);
+    fill(gx, gy, color);
     isPlaying = true;
   };
 
@@ -107,16 +113,18 @@ new p5((p: p5) => {
     if (isPlaying) {
       if (visited.length > 0) {
         const cur = visited.shift();
-        if (isStart(cur.x, cur.y) || isGoal(cur.x, cur.y)) {
+        const [cx, cy] = [cur.x, cur.y];
+        if ((cx == sx && cy == sy) || (cx == gx && cy == gy)) {
           return;
         }
-        fill(cur.x, cur.y, colors.visited);
+        fill(cx, cy, colors.visited);
       } else if (routes.length > 0) {
         const cur = routes.shift();
-        if (isStart(cur.x, cur.y) || isGoal(cur.x, cur.y)) {
+        const [cx, cy] = [cur.x, cur.y];
+        if ((cx == sx && cy == sy) || (cx == gx && cy == gy)) {
           return;
         }
-        fill(cur.x, cur.y, colors.routes);
+        fill(cx, cy, colors.routes);
       }
     }
   };
@@ -128,73 +136,33 @@ new p5((p: p5) => {
       .map((value, i) => {
         switch (value) {
           case "_":
-            return Cell.floor;
+            return Cell.Floor;
           case "S":
-            start = indexToXY(i);
-            return Cell.floor;
-          case "E":
-            goal = indexToXY(i);
-            return Cell.floor;
+            sx = i % W;
+            sy = Math.floor(i / W);
+            return Cell.Floor;
+          case "G":
+            gx = i % W;
+            gy = Math.floor(i / W);
+            return Cell.Floor;
           default:
-            return Cell.wall;
+            return Cell.Wall;
         }
       });
   }
 
-  function indexToXY(index: number): Point {
-    const x = index % tileWidth;
-    const y = Math.floor(index / tileWidth);
-
-    return { x, y };
-  }
-
-  function checkNexts(x: number, y: number): boolean {
-    for (let i = 0; i < nexts.length; i++) {
-      const s = nexts[i];
-      if (s.x === x && s.y === y) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function checkVisited(x: number, y: number): boolean {
-    for (let i = 0; i < visited.length; i++) {
-      const s = visited[i];
-      if (s.x === x && s.y === y) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function isStart(x: number, y: number): boolean {
-    return x === start.x && y === start.y;
-  }
-
-  function isGoal(x: number, y: number): boolean {
-    return x === goal.x && y === goal.y;
-  }
-
-  function isFloor(x: number, y: number): boolean {
-    if (0 <= x && x < tileWidth && 0 <= y && y < tileHeight) {
-      return getTile(x, y) === Cell.floor;
-    }
-    return false;
-  }
-
   function getTile(x: number, y: number): Cell {
-    return map[y * tileWidth + x];
+    return map[y * W + x];
   }
 
   function initFill(): void {
     p.clear();
     p.strokeWeight(1);
 
-    for (let y = 0; y < tileHeight; y++) {
-      for (let x = 0; x < tileWidth; x++) {
+    for (let y = 0; y < H; y++) {
+      for (let x = 0; x < W; x++) {
         const tile = getTile(x, y);
-        if (tile === Cell.wall) {
+        if (tile === Cell.Wall) {
           fill(x, y, colors.wall);
         }
       }
