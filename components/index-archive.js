@@ -1,10 +1,11 @@
 import PostPreview from "./post-preview";
 
 export default function c({ posts }) {
-  const tags = ["math", "random", "image_processing"];
+  const tags = ["math", "random", "physics", "image_processing"];
   const names = {};
   names["math"] = "数学";
   names["random"] = "ランダム";
+  names["physics"] = "物理";
   names["image_processing"] = "画像処理";
 
   return (
