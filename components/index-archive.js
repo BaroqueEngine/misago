@@ -11,6 +11,7 @@ export default function c({ posts }) {
     "tilemap",
     "image_processing",
     "map",
+    "simulation",
   ];
   const names = {};
   names["math"] = "数学";
@@ -22,6 +23,7 @@ export default function c({ posts }) {
   names["tilemap"] = "タイルマップ";
   names["image_processing"] = "画像処理";
   names["map"] = "マップ生成";
+  names["simulation"] = "シミュレーション";
 
   return (
     <section className="max-w-4xl m-auto px-8 py-14">
