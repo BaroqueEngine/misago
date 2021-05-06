@@ -7,6 +7,7 @@ export default function c({ posts }) {
     "physics",
     "curve",
     "search",
+    "sprite",
     "image_processing",
   ];
   const names = {};
@@ -15,6 +16,7 @@ export default function c({ posts }) {
   names["physics"] = "物理";
   names["curve"] = "曲線";
   names["search"] = "探索";
+  names["sprite"] = "スプライト";
   names["image_processing"] = "画像処理";
 
   return (
