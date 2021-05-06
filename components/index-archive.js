@@ -10,6 +10,7 @@ export default function c({ posts }) {
     "sprite",
     "tilemap",
     "image_processing",
+    "map",
   ];
   const names = {};
   names["math"] = "数学";
@@ -20,6 +21,7 @@ export default function c({ posts }) {
   names["sprite"] = "スプライト";
   names["tilemap"] = "タイルマップ";
   names["image_processing"] = "画像処理";
+  names["map"] = "マップ生成";
 
   return (
     <section className="max-w-4xl m-auto px-8 py-14">
