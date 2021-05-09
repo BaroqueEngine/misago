@@ -13,6 +13,7 @@ export default function c({ posts }) {
     "map",
     "simulation",
     "statistics",
+    "array",
   ];
   const names = {};
   names["math"] = "数学";
@@ -26,6 +27,7 @@ export default function c({ posts }) {
   names["map"] = "マップ生成";
   names["simulation"] = "シミュレーション";
   names["statistics"] = "統計";
+  names["array"] = "配列";
 
   return (
     <section className="max-w-4xl m-auto px-8 py-14">
