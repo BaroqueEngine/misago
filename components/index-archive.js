@@ -15,6 +15,7 @@ export default function c({ posts }) {
     "statistics",
     "array",
     "input",
+    "svg",
   ];
   const names = {};
   names["math"] = "数学";
@@ -30,6 +31,7 @@ export default function c({ posts }) {
   names["statistics"] = "統計";
   names["array"] = "配列";
   names["input"] = "入力";
+  names["svg"] = "SVG";
 
   return (
     <section className="max-w-4xl m-auto px-8 py-14">
