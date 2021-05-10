@@ -9,6 +9,7 @@ export default function c({ posts }) {
     "search",
     "sprite",
     "tilemap",
+    "particle",
     "image_processing",
     "map",
     "simulation",
@@ -25,6 +26,7 @@ export default function c({ posts }) {
   names["search"] = "探索";
   names["sprite"] = "スプライト";
   names["tilemap"] = "タイルマップ";
+  names["particle"] = "パーティクル";
   names["image_processing"] = "画像処理";
   names["map"] = "マップ生成";
   names["simulation"] = "シミュレーション";
