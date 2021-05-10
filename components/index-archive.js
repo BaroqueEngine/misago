@@ -10,6 +10,7 @@ export default function c({ posts }) {
     "sprite",
     "tilemap",
     "particle",
+    "steering",
     "image_processing",
     "map",
     "simulation",
@@ -27,6 +28,7 @@ export default function c({ posts }) {
   names["sprite"] = "スプライト";
   names["tilemap"] = "タイルマップ";
   names["particle"] = "パーティクル";
+  names["steering"] = "操舵行動";
   names["image_processing"] = "画像処理";
   names["map"] = "マップ生成";
   names["simulation"] = "シミュレーション";
