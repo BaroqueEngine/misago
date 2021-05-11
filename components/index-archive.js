@@ -6,6 +6,7 @@ export default function c({ posts }) {
     "random",
     "physics",
     "curve",
+    "string",
     "search",
     "sprite",
     "tilemap",
@@ -24,6 +25,7 @@ export default function c({ posts }) {
   names["random"] = "ランダム";
   names["physics"] = "物理";
   names["curve"] = "曲線";
+  names["string"] = "文字列";
   names["search"] = "探索";
   names["sprite"] = "スプライト";
   names["tilemap"] = "タイルマップ";
