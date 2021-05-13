@@ -23,7 +23,7 @@ tags: ["svg"]
 <path d="M0 300 Q 250 0 500 300" fill="none" stroke="#1c8b94" stroke-width="5" />
 ```
 
-`M(oveTo)`で始点に移動し、`Q(uadraticCurveTo) 制御点x 制御点y 終点x 終点y`で[二次ベジェ曲線](/946c9cf0/)を描きます。
+`M(oveTo)`で始点に移動し、`Q(uadraticCurveTo) 制御点x 制御点y 終点x 終点y`で[二次ベジェ曲線](/946c9cf0)を描きます。
 
 ## 三次ベジェ曲線
 
@@ -44,4 +44,4 @@ tags: ["svg"]
 <path d="M0 300 C200 10 400 10 600 300" fill="none" stroke="#1c8b94" stroke-width="5" />
 ```
 
-`M(oveTo)`で始点に移動し、`C(urveTo) 制御点1x 制御点1y 制御点2x 制御点2y 終点x 終点y`で[三次ベジェ曲線](/946c9cf0/)を描きます。
+`M(oveTo)`で始点に移動し、`C(urveTo) 制御点1x 制御点1y 制御点2x 制御点2y 終点x 終点y`で[三次ベジェ曲線](/946c9cf0)を描きます。
