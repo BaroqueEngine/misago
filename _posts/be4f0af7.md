@@ -6,6 +6,40 @@ hash: "be4f0af7"
 tags: ["math"]
 ---
 
+## コード例
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> v = {3, 4, 3, 1};
+
+// next_permutation()を呼び出す前に昇順にソートしておく必要がある
+sort(v.begin(), v.end());
+
+do {
+  for (auto x : v) {
+    cout << x << " ";
+  }
+  cout << endl;
+} while (next_permutation(v.begin(), v.end()));
+```
+
+```text
+1 3 3 4
+1 3 4 3
+1 4 3 3
+3 1 3 4
+3 1 4 3
+3 3 1 4
+3 3 4 1
+3 4 1 3
+3 4 3 1
+4 1 3 3
+4 3 1 3
+4 3 3 1
+```
+
 ## 解説/アルゴリズム
 
 異なる n 個のものから r 個を取り出して並べたものを、`n個からr個とった順列`といい、順列の総数を ${}_n \mathrm{P} {}_r$ と表します。
