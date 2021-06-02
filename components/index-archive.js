@@ -7,7 +7,7 @@ export default function c({ posts }) {
     "physics",
     "curve",
     "string",
-    "search",
+    "graph",
     "sprite",
     "tilemap",
     "particle",
@@ -26,7 +26,7 @@ export default function c({ posts }) {
   names["physics"] = "物理";
   names["curve"] = "曲線";
   names["string"] = "文字列";
-  names["search"] = "探索";
+  names["graph"] = "グラフ";
   names["sprite"] = "スプライト";
   names["tilemap"] = "タイルマップ";
   names["particle"] = "パーティクル";
