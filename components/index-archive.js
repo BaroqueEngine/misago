@@ -32,7 +32,7 @@ export default function c({ posts }) {
   names["particle"] = "パーティクル";
   names["steering"] = "操舵行動";
   names["image_processing"] = "画像処理";
-  names["map"] = "マップ生成";
+  names["map"] = "マップ";
   names["simulation"] = "シミュレーション";
   names["statistics"] = "統計";
   names["array"] = "配列";
