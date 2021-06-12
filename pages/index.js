@@ -17,7 +17,7 @@ export default function Index({ allPosts }) {
               <h1 className="text-center">
                 <a
                   className="text-4xl"
-                  href="https://baroqueengine.net/misago/"
+                  href="https://misago.baroqueengine.net/"
                 >
                   みさご解体新書
                 </a>
