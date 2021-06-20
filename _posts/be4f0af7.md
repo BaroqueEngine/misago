@@ -1,6 +1,6 @@
 ---
 title: "順列"
-weight: 210
+weight: 230
 num: 239
 hash: "be4f0af7"
 tags: ["math"]

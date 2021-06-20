@@ -1,6 +1,6 @@
 ---
 title: "数値同士がほぼ同じ値か調べる"
-weight: 70
+weight: 80
 num: 126
 hash: "5da8e1ef"
 tags: ["math"]
