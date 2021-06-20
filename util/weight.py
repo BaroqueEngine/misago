@@ -24,7 +24,7 @@ for file_name in files:
 data = sorted(data, key=lambda x:x["weight"])
 for i in range(len(data)):
   item = data[i]
-  new_weight = i * k
+  new_weight = (i + 1) * k
   new_text = re.sub("weight: " + str(item["weight"]), "weight: " + str(new_weight), item["text"])
   with open(item["file_name"], "w", encoding="UTF-8") as f:
     f.write(new_text)
