@@ -9,6 +9,7 @@ export default function c({ posts }) {
     "string",
     "graph",
     "color",
+    "shader",
     "sprite",
     "tilemap",
     "particle",
@@ -29,6 +30,7 @@ export default function c({ posts }) {
   names["string"] = "文字列";
   names["graph"] = "グラフ";
   names["color"] = "色";
+  names["shader"] = "シェーダー";
   names["sprite"] = "スプライト";
   names["tilemap"] = "タイルマップ";
   names["particle"] = "パーティクル";
