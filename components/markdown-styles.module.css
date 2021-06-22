@@ -3,8 +3,20 @@
 }
 
 .markdown a {
-  padding-bottom: 4px;
+  padding-bottom: 2px;
   border-bottom: 1px solid #555;
+}
+
+.markdown svg {
+  max-width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.markdown span svg {
+  max-width: none;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .markdown ul li:before {
