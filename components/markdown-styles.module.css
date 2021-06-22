@@ -24,6 +24,10 @@
   list-style-type: decimal;
 }
 
+.markdown li > * {
+  margin-left: 0.5rem;
+}
+
 .markdown p {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
