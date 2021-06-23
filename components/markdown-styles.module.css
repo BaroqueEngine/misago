@@ -36,6 +36,10 @@
   padding-left: 1rem;
 }
 
+.markdown ol li {
+  padding-left: 0.5rem;
+}
+
 .markdown ol {
   margin-top: 1rem;
   margin-bottom: 1rem;
