@@ -39,4 +39,4 @@ export function flee(v: Vehicle, target: p5.Vector) {
 }
 ```
 
-逃避行動(flee)は、引数で渡した位置からなるべく離れようとする行動です。
+逃避行動(flee)は、引数で渡した位置からなるべく離れようとする行動。
