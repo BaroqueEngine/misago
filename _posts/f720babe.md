@@ -28,23 +28,23 @@ export function seek(v: Vehicle, target: p5.Vector): void {
 }
 ```
 
-この追求行動(seek)では、引数に渡した位置に向けて、現在位置から 1 フレームで移動できるだけ移動しようという行動です。
+この追求行動(seek)では、引数に渡した位置に向けて、現在位置から 1 フレームで移動できるだけ移動しようという行動となる。
 
 ```typescript
 desiredVelocity.limit(v.maxSpeed);
 ```
 
-現在位置(position)から目標位置(target)までのベクトルを求めます。
+現在位置(position)から目標位置(target)までのベクトルを求める。
 
 ```typescript
 desiredVelocity.limit(v.maxSpeed);
 ```
 
-1 フレームで移動できる距離を求めるため、maxSpeed でベクトルの制限を行います。
+1 フレームで移動できる距離を求めるため、maxSpeed でベクトルの制限を行う。
 
 ```typescript
 const force = p5.Vector.sub(desiredVelocity, v.velocity);
 v.acceleration.add(force);
 ```
 
-上で求めた速度と今現在の速度の差分を求め、加速度に加えます。
+上で求めた速度と今現在の速度の差分を求め、加速度に加える。
