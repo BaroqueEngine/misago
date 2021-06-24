@@ -8,7 +8,6 @@ export default function c({ posts }) {
     "curve",
     "string",
     "graph",
-    "color",
     "shader",
     "sprite",
     "tilemap",
@@ -29,7 +28,6 @@ export default function c({ posts }) {
   names["curve"] = "曲線";
   names["string"] = "文字列";
   names["graph"] = "グラフ";
-  names["color"] = "色";
   names["shader"] = "シェーダー";
   names["sprite"] = "スプライト";
   names["tilemap"] = "タイルマップ";
