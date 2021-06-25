@@ -6,6 +6,7 @@ export default function c({ posts }) {
     "random",
     "physics",
     "curve",
+    "circle",
     "string",
     "graph",
     "shader",
@@ -26,6 +27,7 @@ export default function c({ posts }) {
   names["random"] = "ランダム";
   names["physics"] = "物理";
   names["curve"] = "曲線";
+  names["circle"] = "円";
   names["string"] = "文字列";
   names["graph"] = "グラフ";
   names["shader"] = "シェーダー";
