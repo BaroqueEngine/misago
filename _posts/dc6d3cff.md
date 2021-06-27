@@ -1,6 +1,6 @@
 ---
 title: "値の交換"
-weight: 370
+weight: 390
 num: 508
 hash: "dc6d3cff"
 tags: ["math"]

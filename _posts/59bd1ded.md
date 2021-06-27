@@ -1,6 +1,6 @@
 ---
 title: "二項定理"
-weight: 260
+weight: 280
 num: 242
 hash: "59bd1ded"
 tags: ["math"]

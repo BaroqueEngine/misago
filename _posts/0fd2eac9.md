@@ -1,6 +1,6 @@
 ---
 title: "床関数"
-weight: 300
+weight: 320
 num: 288
 hash: "0fd2eac9"
 tags: ["math"]
