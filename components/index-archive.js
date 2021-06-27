@@ -17,6 +17,7 @@ export default function c({ posts }) {
     "image_processing",
     "map",
     "simulation",
+    "sound",
     "statistics",
     "array",
     "input",
@@ -38,6 +39,7 @@ export default function c({ posts }) {
   names["image_processing"] = "画像処理";
   names["map"] = "マップ";
   names["simulation"] = "シミュレーション";
+  names["sound"] = "サウンド";
   names["statistics"] = "統計";
   names["array"] = "配列";
   names["input"] = "入力";
