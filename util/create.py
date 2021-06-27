@@ -1,4 +1,4 @@
-import glob, re, subprocess, sys, ast
+import subprocess, sys, ast
 
 if len(sys.argv) != 2:
   exit()
