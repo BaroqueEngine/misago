@@ -15,12 +15,11 @@ def get_num():
   return n
 
 def get_hash(salt, n):
-  return subprocess.check_output("python slug.py %s %s" % (salt, str(n)))
+  return subprocess.check_output("python slug.py %s %s" % (salt, str(n))).decode().rstrip("\r\n")
 
 salt = sys.argv[1]
 n = get_num()
-hash = get_hash(salt, n).decode().rstrip("\r\n")
-
+hash = get_hash(salt, n)
 text = '''---
 title: ""
 weight: 999
