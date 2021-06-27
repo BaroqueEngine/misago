@@ -1,20 +1,10 @@
-import glob, re, subprocess, sys
+import glob, re, subprocess, sys, ast
 
 if len(sys.argv) != 2:
   exit()
 
 def get_nums():
-  data = list()
-  files = glob.glob("../_posts/*.md")
-  for file_name in files:
-    with open(file_name, "r", encoding="UTF-8") as f:
-      text = f.read()
-      result = re.search(r"num: (\d+)", text)
-      if result is None:
-        continue
-      data.append(int(result.group(1)))
-  data = sorted(data)
-  return data
+  return ast.literal_eval(subprocess.check_output("python nums.py").decode())
 
 def get_num():
   nums = get_nums()
